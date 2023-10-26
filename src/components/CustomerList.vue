@@ -4,7 +4,7 @@
       <h2 class="mb-4 text-left fairwinds-blue pt-3 ps-3">Our Customers</h2>
   
       <!-- Loading Indicator -->
-      <div v-if="loading" class="d-flex justify-content-center">
+      <div v-if="loading" class="d-flex justify-content-center mb-5">
         <div class="spinner-border" style="color: #002f6f;" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
