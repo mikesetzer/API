@@ -1,7 +1,7 @@
 <template>
     <div>
       <!-- Title -->
-      <h2 class="mb-4 text-left fairwinds-blue">Our Customers</h2>
+      <h2 class="mb-4 text-left fairwinds-blue mt-3 ms-3">Our Customers</h2>
   
       <!-- Loading Indicator -->
       <div v-if="loading" class="d-flex justify-content-center">
