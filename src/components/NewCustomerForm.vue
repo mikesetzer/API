@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col col-12 col-lg-6">
+      <div class="col col-12 col-lg-6 card p-3">
         <h2 class="text-fairwinds-blue">Create New Customer</h2>
         <form @submit.prevent="submitForm">
           <div class="mb-3">
