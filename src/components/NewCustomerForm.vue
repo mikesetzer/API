@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col col-12 col-md-6">
+      <div class="col col-12 col-lg-6">
         <h2 class="text-fairwinds-blue">Create New Customer</h2>
         <form @submit.prevent="submitForm">
           <div class="mb-3">
@@ -138,7 +138,7 @@ export default {
       console.log('Sending data:', customerData);
 
       try {
-        const response = await axios.post('https://my.api.mockaroo.com/customers.json?key=e95894a0', customerData);
+        const response = await axios.post('https://my.api.mockaroo.com/customers.json?key=03c46990', customerData);
         console.log('Received response:', response);
 
         if (response.status === 201) {

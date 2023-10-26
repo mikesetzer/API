@@ -89,7 +89,7 @@
     },
     async mounted() {
       try {
-        const response = await axios.get('https://my.api.mockaroo.com/customers.json?key=e95894a0');
+        const response = await axios.get('https://my.api.mockaroo.com/customers.json?key=03c46990');
         if (response.status === 200) {
           this.customers = response.data;
           this.loading = false;
