@@ -20,17 +20,12 @@ To install the Customer Management App, follow these steps:
    ```
    Replace `https://github.com/your-username/customer-management-app.git` with the actual repository URL.
 
-2. Navigate to the project directory:
-   ```
-   cd customer-management-app
-   ```
-
-3. Install the required packages and dependencies:
+2. Install the required packages and dependencies:
    ```
    npm install
    ```
 
-4. Once the installation is complete, you can run the local development server:
+3. Once the installation is complete, you can run the local development server:
    ```
    npm run serve
    ```
