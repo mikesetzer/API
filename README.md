@@ -44,11 +44,3 @@ After running the development server, you can use the app through your web brows
 1. Visit [http://localhost:8080/](http://localhost:8080/) to view the app in your browser.
 
 2. You should see a list of customers retrieved from the server. You can also add new customers using the "Add New Customer" button and filling out the form that appears.
-
-## Contact
-
-If you encounter any issues or have questions about the app, please open an issue or contact [Your Contact Information].
-
-## License
-
-This project uses the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
