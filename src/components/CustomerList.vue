@@ -1,7 +1,7 @@
 <template>
     <div>
       <!-- Title -->
-      <h2 class="mb-4 text-left fairwinds-blue mt-3 ms-3">Our Customers</h2>
+      <h2 class="mb-4 text-left fairwinds-blue pt-3 ps-3">Our Customers</h2>
   
       <!-- Loading Indicator -->
       <div v-if="loading" class="d-flex justify-content-center">
@@ -16,29 +16,31 @@
       </div>
   
       <!-- Customers Table -->
-      <table v-if="!loading && !error" class="table table-striped">
-        <thead>
-          <tr class="bg-fairwinds-blue text-white">
-            <th scope="col">Customer Number</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Date of Birth</th>
-            <th scope="col">Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="customer in customers" 
-              :key="customer.customer_number" 
-              @click="selectCustomer(customer)" 
-              class="table-row">
-            <th scope="row">{{ customer.customer_number }}</th>
-            <td>{{ customer.first_name }}</td>
-            <td>{{ customer.last_name }}</td>
-            <td>{{ formatDate(customer.date_birth) }}</td>
-            <td>{{ calculateAge(customer.date_birth) }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div v-if="!loading && !error" class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr class="fairwinds-blue">
+              <th scope="col">Customer Number</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="customer in customers" 
+                :key="customer.customer_number" 
+                @click="selectCustomer(customer)" 
+                class="table-row">
+              <th scope="row">{{ customer.customer_number }}</th>
+              <td>{{ customer.first_name }}</td>
+              <td>{{ customer.last_name }}</td>
+              <td>{{ formatDate(customer.date_birth) }}</td>
+              <td>{{ calculateAge(customer.date_birth) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   
       <!-- Customer Details Modal -->
       <div v-if="selectedCustomer" 

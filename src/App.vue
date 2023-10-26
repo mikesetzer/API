@@ -3,7 +3,7 @@
   <div>
     <!-- Header section with Fairwinds blue background -->
     <div class="header-section bg-fairwinds-blue text-white">
-      <div class="container-fluid p-5">
+      <div class="container-fluid p-xs-3 p-md-5">
         <div class="d-flex align-items-center">
           <!-- Logo Image -->
           <img src="https://scontent.ftpa1-2.fna.fbcdn.net/v/t39.30808-6/273118883_10159073885483096_3044435513138211141_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FrE_rR8uQ1sAX_5-Xcz&_nc_ht=scontent.ftpa1-2.fna&oh=00_AfBHL5qqwqot6SrpDTUjFeYj-E3Wr2ontbsody2h5z65Hg&oe=653F261A" alt="Company Logo" class="logo me-3">
@@ -14,7 +14,7 @@
     </div>
 
     <!-- Main content area -->
-    <div class="container-fluid p-5">
+    <div class="container p-3 p-md-5">
       <div class="row">
         
         <!-- Main panel: Customer List and New Customer Form -->
@@ -104,5 +104,10 @@ export default {
 .logo {
   max-height: 50px;
   width: auto;
+}
+
+body, html{
+  margin:0;
+  padding:0;
 }
 </style>

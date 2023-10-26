@@ -1,60 +1,64 @@
 <template>
-  <div>
-    <h2 class="text-fairwinds-blue">Create New Customer</h2>
-    <form @submit.prevent="submitForm">
-      <div class="mb-3">
-        <label for="customerNumber" class="form-label">Customer Number</label>
-        <input v-model="newCustomer.customerNumber" type="text" class="form-control" id="customerNumber" placeholder="Generated automatically" disabled>
-      </div>
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 col-md-6">
+        <h2 class="text-fairwinds-blue">Create New Customer</h2>
+        <form @submit.prevent="submitForm">
+          <div class="mb-3">
+            <label for="customerNumber" class="form-label">Customer Number</label>
+            <input v-model="newCustomer.customerNumber" type="text" class="form-control" id="customerNumber" placeholder="Generated automatically" disabled>
+          </div>
 
-      <div class="mb-3">
-        <label for="firstName" class="form-label">First Name</label>
-        <input v-model="newCustomer.firstName" type="text" class="form-control" id="firstName" required>
-      </div>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input v-model="newCustomer.firstName" type="text" class="form-control" id="firstName" required>
+          </div>
 
-      <div class="mb-3">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input v-model="newCustomer.lastName" type="text" class="form-control" id="lastName" required>
-      </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input v-model="newCustomer.lastName" type="text" class="form-control" id="lastName" required>
+          </div>
 
-      <div class="mb-3">
-        <label for="dob" class="form-label">Date of Birth</label>
-        <input v-model="newCustomer.dob" type="date" class="form-control" id="dob" required>
-        <div v-if="formErrors.dob" class="invalid-feedback">
-          {{ formErrors.dob }}
-        </div>
-      </div>
+          <div class="mb-3">
+            <label for="dob" class="form-label">Date of Birth</label>
+            <input v-model="newCustomer.dob" type="date" class="form-control" id="dob" required>
+            <div v-if="formErrors.dob" class="invalid-feedback">
+              {{ formErrors.dob }}
+            </div>
+          </div>
 
-      <div class="mb-3">
-        <label for="ssn" class="form-label">Social Security Number (SSN)</label>
-        <input v-model="newCustomer.ssn" type="text" class="form-control" id="ssn" required>
-        <div v-if="formErrors.ssn" class="invalid-feedback">
-          {{ formErrors.ssn }}
-        </div>
-      </div>
+          <div class="mb-3">
+            <label for="ssn" class="form-label">Social Security Number (SSN)</label>
+            <input v-model="newCustomer.ssn" type="text" class="form-control" id="ssn" required>
+            <div v-if="formErrors.ssn" class="invalid-feedback">
+              {{ formErrors.ssn }}
+            </div>
+          </div>
 
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input v-model="newCustomer.email" type="email" class="form-control" id="email" required>
-        <div v-if="formErrors.email" class="invalid-feedback">
-          {{ formErrors.email }}
-        </div>
-      </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input v-model="newCustomer.email" type="email" class="form-control" id="email" required>
+            <div v-if="formErrors.email" class="invalid-feedback">
+              {{ formErrors.email }}
+            </div>
+          </div>
 
-      <div class="mb-3">
-        <label for="address" class="form-label">Primary Address</label>
-        <input v-model="newCustomer.address" type="text" class="form-control" id="address" required>
-      </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Primary Address</label>
+            <input v-model="newCustomer.address" type="text" class="form-control" id="address" required>
+          </div>
 
-      <div class="mb-3">
-        <label for="phone" class="form-label">Mobile Phone Number</label>
-        <input v-model="newCustomer.phone" type="tel" class="form-control" id="phone" required>
-      </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Mobile Phone Number</label>
+            <input v-model="newCustomer.phone" type="tel" class="form-control" id="phone" required>
+          </div>
 
-      <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-lg btn-fairwinds-blue text-white">Submit</button>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-fairwinds-blue text-white">Submit</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
 </template>
 
