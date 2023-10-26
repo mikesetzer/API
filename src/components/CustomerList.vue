@@ -20,9 +20,10 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr class="fairwinds-blue">
-              <th scope="col">Customer Number</th>
+              <th scope="col">Customer No.</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
+              <th scope="col">Last 4 SSN</th>
               <th scope="col">Date of Birth</th>
               <th scope="col">Age</th>
             </tr>
@@ -35,6 +36,7 @@
               <th scope="row">{{ customer.customer_number }}</th>
               <td>{{ customer.first_name }}</td>
               <td>{{ customer.last_name }}</td>
+              <td>{{ formatSSN(customer.ssn) }}</td>
               <td>{{ formatDate(customer.date_birth) }}</td>
               <td>{{ calculateAge(customer.date_birth) }}</td>
             </tr>
@@ -88,36 +90,49 @@
     async mounted() {
       try {
         const response = await axios.get('https://my.api.mockaroo.com/customers.json?key=e95894a0');
-        this.customers = response.data;
-        this.loading = false;
+        if (response.status === 200) {
+          this.customers = response.data;
+          this.loading = false;
+        } else {
+          // Handle non-successful responses
+          throw new Error(`Server responded with status code ${response.status}`);
+        }
       } catch (error) {
-        this.error = 'Failed to fetch data';
+        this.error = error.message || 'Failed to fetch data';
         this.loading = false;
+        console.error(error); // Log the error details to the console
       }
     },
     methods: {
-        selectCustomer(customer) {
-            this.selectedCustomer = customer;
-        },
-        calculateAge(dateOfBirth) {
-            const birthDate = new Date(dateOfBirth);
-            const today = new Date();
-            const age = today.getFullYear() - birthDate.getFullYear();
-            const m = today.getMonth() - birthDate.getMonth();
+      selectCustomer(customer) {
+          this.selectedCustomer = customer;
+      },
+      calculateAge(dateOfBirth) {
+          const birthDate = new Date(dateOfBirth);
+          const today = new Date();
+          const age = today.getFullYear() - birthDate.getFullYear();
+          const m = today.getMonth() - birthDate.getMonth();
 
-            // Corrected logical operators below
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            return age - 1;
-            }
-            return age;
-        },
-        formatDate(dateString) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString(undefined, options);
-        },
-        formatAddress(address) {
-            return `${address.address_line_1}, ${address.city}, ${address.state}, ${address.zip_code}`;
-        },
+          // Corrected logical operators below
+          if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          return age - 1;
+          }
+          return age;
+      },
+      formatDate(dateString) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return new Date(dateString).toLocaleDateString(undefined, options);
+      },
+      formatAddress(address) {
+          return `${address.address_line_1}, ${address.city}, ${address.state}, ${address.zip_code}`;
+      },
+      formatSSN(ssn) {
+        if (!ssn) {
+          return 'N/A'; 
+        }
+        const lastFourDigits = ssn.slice(-4);
+        return `***-**-${lastFourDigits}`;
+      },
     },
   };
   </script>
