@@ -20,7 +20,7 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr class="fairwinds-blue">
-              <th scope="col">Customer No.</th>
+              <th class="ps-3" scope="col">Customer No.</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Last 4 SSN</th>
@@ -33,7 +33,7 @@
                 :key="customer.customer_number" 
                 @click="selectCustomer(customer)" 
                 class="table-row">
-              <th scope="row">{{ customer.customer_number }}</th>
+              <th class="ps-3" scope="row">{{ customer.customer_number }}</th>
               <td>{{ customer.first_name }}</td>
               <td>{{ customer.last_name }}</td>
               <td>{{ formatSSN(customer.ssn) }}</td>
